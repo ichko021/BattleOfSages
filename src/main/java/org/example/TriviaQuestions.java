@@ -11,16 +11,16 @@ public class TriviaQuestions {
 
     public TriviaQuestions() {
         this.triviaQuestionsMap = new HashMap<>();
-        this.triviaQuestionsMap.put("The Louvre was built in", 1190);
+        this.triviaQuestionsMap.put("The Louvre was built in ____", 1190);
         this.triviaQuestionsMap.put("The Great Wall of China is approximately ____ miles long", 13171);
-        this.triviaQuestionsMap.put("The Eiffel Tower was completed in", 1889);
-        this.triviaQuestionsMap.put("The ancient city of Pompeii was buried by an eruption of Mount Vesuvius in", 79);
-        this.triviaQuestionsMap.put("The construction of the Panama Canal was completed in", 1914);
-        this.triviaQuestionsMap.put("The Berlin Wall fell in", 1989);
-        this.triviaQuestionsMap.put("The Titanic sank in the year", 1912);
-        this.triviaQuestionsMap.put("The first human to travel into space, Yuri Gagarin, made his journey in", 1961);
-        this.triviaQuestionsMap.put("The United States declared its independence in", 1776);
-        this.triviaQuestionsMap.put("The Roman Colosseum was completed in", 80);
+        this.triviaQuestionsMap.put("The Eiffel Tower was completed in ____", 1889);
+        this.triviaQuestionsMap.put("The ancient city of Pompeii was buried by an eruption of Mount Vesuvius in ____", 79);
+        this.triviaQuestionsMap.put("The construction of the Panama Canal was completed in ____", 1914);
+        this.triviaQuestionsMap.put("The Berlin Wall fell in ____", 1989);
+        this.triviaQuestionsMap.put("The Titanic sank in the year ____", 1912);
+        this.triviaQuestionsMap.put("The first human to travel into space, Yuri Gagarin, made his journey in ____", 1961);
+        this.triviaQuestionsMap.put("The United States declared its independence in ____", 1776);
+        this.triviaQuestionsMap.put("The Roman Colosseum was completed in ____", 80);
     }
 
     public void printOutRandomQuestion(int num) {
@@ -36,7 +36,7 @@ public class TriviaQuestions {
         }
     }
 
-    public int answerQuestion(int answer, int num, String playerName) {
+    public boolean answerQuestion(int answer, int num) {
         int count = 0;
 
         for(Map.Entry<String, Integer> entry : this.triviaQuestionsMap.entrySet()) {
@@ -44,16 +44,16 @@ public class TriviaQuestions {
                 if(answer == entry.getValue()) {
                     System.out.println("Correct answer");
                     this.triviaQuestionsMap.remove(entry.getKey());
-                    return 1;
+                    return true;
                 } else {
                     System.out.println("Wrong answer");
                     this.triviaQuestionsMap.remove(entry.getKey());
-                    return -1;
+                    return false;
                 }
             } else {
                 count++;
             }
         }
-        return 0;
+        return false;
     }
 }

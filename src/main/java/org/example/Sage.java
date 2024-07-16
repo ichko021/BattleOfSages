@@ -7,7 +7,7 @@ public class Sage {
 
     public Sage(String name) {
         this.name = name;
-        this.health = 10;
+        this.health = 5;
     }
 
     public int getHealth() {
